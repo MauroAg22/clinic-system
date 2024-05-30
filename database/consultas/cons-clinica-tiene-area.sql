@@ -1,21 +1,21 @@
 -- Asignar área 1 a clínica 1
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (1, 1, 1, '123-456789');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (1, 1, 1);
 
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (1, 2, 1, '987-654321');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (1, 2, 1);
 
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (2, 1, 1, '234-567890');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (2, 1, 1);
 
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (2, 3, 2, '345-678901');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (2, 3, 2);
 
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (3, 3, 3, '456-789012');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (3, 3, 3);
 
-INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id, cam_tel) 
-VALUES (3, 4, 3, '567-890123');
+INSERT INTO ClinicaAreaMedico (cl_id, a_id, m_id) 
+VALUES (3, 4, 3);
 
 
 SELECT *
