@@ -1,0 +1,7 @@
+CREATE TABLE
+    Vacuna (
+        v_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        v_nombre VARCHAR(50) NOT NULL UNIQUE
+    );
+
+DROP TABLE Vacuna;
