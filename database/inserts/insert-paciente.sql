@@ -121,6 +121,3 @@ VALUES
         'Divorciado/a',
         'Femenino'
     );
-
-SELECT *
-FROM Paciente;
