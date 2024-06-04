@@ -1,13 +1,9 @@
 <?php
 
 
-include "class/conexion.php";
+include "lib/conexion.php";
 
-$conexion = new conexion();
+$sql = "SELECT * FROM Medico";
 
-$sql = "INSERT INTO
-            MedicoEspecialidad (m_id, e_id)
-        VALUES
-            (1, 2)";
+print_r(consultar($sql));
 
-echo $conexion->ejecutar($sql);
