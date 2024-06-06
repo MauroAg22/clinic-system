@@ -9,7 +9,7 @@ const OPTIONS = array(
     PDO::ATTR_PERSISTENT => false
 );
 
-function conectar() {
+function connect() {
     global $connection;
     try {
         $connection = new PDO("mysql:host=".SERVER.";dbname=".DBNAME, USER, PASSWORD, OPTIONS);
@@ -23,7 +23,7 @@ function conectar() {
 function ejecutar($sql) {
     global $connection;
     if (!isset($connection)) {
-        conectar();
+        connect();
     }
     try {
         $sentencia = $connection->prepare($sql);
@@ -38,7 +38,7 @@ function ejecutar($sql) {
 function consultar($sql) {
     global $connection;
     if (!isset($connection)) {
-        conectar();
+        connect();
     }
     try {
         $sentencia = $connection->prepare($sql);

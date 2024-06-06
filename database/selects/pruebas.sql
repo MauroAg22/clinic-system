@@ -25,3 +25,7 @@ JOIN medico AS m ON me.m_id = m.m_id
 JOIN especialidad AS e ON me.e_id = e.e_id
 WHERE m.m_id = 1
 ORDER BY me.me_id
+
+SELECT cl_nombre, cl_cuit
+FROM clinica
+ORDER BY cl_nombre;
