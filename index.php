@@ -2,58 +2,112 @@
 
 include "lib/connection.php";
 
-$sql = "SELECT cl_nombre, cl_cuit, cl_calle, cl_numero_calle
+connect();
+
+// ----------------------------------------------------------------------------------------------------
+
+$sql = "SELECT cl_id, cl_nombre, cl_cuit, cl_calle, cl_numero_calle, cl_provincia, cl_ciudad
         FROM clinica
         ORDER BY cl_nombre;";
 
-$clinicas = consultar($sql);
+$clinicas = consultaSimple($sql);
+
+// ----------------------------------------------------------------------------------------------------
+
+$sql2 = "SELECT COUNT(DISTINCT m.m_id) AS medicos
+        FROM Medico AS m
+        JOIN ClinicaAreaMedico as cam ON m.m_id = cam.m_id
+        WHERE cam.cl_id = :cl_id";
+
+foreach ($clinicas as $unaClinica) {
+    $sentencia = $connection->prepare($sql2);
+    $sentencia->bindParam(':cl_id', $unaClinica['cl_id'], PDO::PARAM_INT);
+    $sentencia->execute();
+    $arrayCantMedicos[$unaClinica['cl_id']] = $sentencia->fetchAll(PDO::FETCH_ASSOC)[0]['medicos'];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+disconnect();
+
 
 ?>
 
 <?php include "components/head.php" ?>
 
-<main class="container my-4 pt-4">
-
-    <div class="row gy-3 rounded-4 border border-2 bg-white">
-        <div class="col-12 border-2 border-bottom">
-            <h1 class="h1 text-center mb-3">Sistema de clínicas</h1>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Clinicas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form action="ingresar-modificar-clinica.php" method="post">
+                    <input type="hidden" name="modificar" value="-1">
+                    <div class="d-grid mb-3">
+                        <input class="btn btn-outline-success" type="submit" value="Agregar">
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-12 col-md-5">
-            <h3 class="h3 text-center mb-3">Gestionar</h3>
-            <div class="d-grid mb-3">
-                <a class="btn btn-outline-success" href="#">Agregar</a>
-            </div>
-            <div class="d-grid mb-3">
-                <a class="btn btn-outline-dark" href="#">Modificar</a>
-            </div>
-            <div class="d-grid mb-3">
-                <a class="btn btn-outline-danger" href="#">Eliminar</a>
-            </div>
+    </div>
+</nav>
 
-        </div>
-        <div class="col-12 col-md-7">
-            <h3 class="h3 text-center mb-3">Ingresar</h3>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Cuit</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($clinicas as $unaClinica) { ?>
+<main class="container-lg my-4">
+    <div class="p-3 bg-white rounded border table-responsive">
+        <table class="table align-middle table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cuit</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col" class="text-center">Médicos</th>
+                    <th scope="col" colspan="4" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($clinicas as $unaClinica) { ?>
                     <tr>
                         <td><?= $unaClinica['cl_nombre']; ?></td>
                         <td><?= $unaClinica['cl_cuit']; ?></td>
+                        <td><?= $unaClinica['cl_ciudad'] . ", " . $unaClinica['cl_provincia']; ?></td>
                         <td><?= $unaClinica['cl_calle'] . " " . $unaClinica['cl_numero_calle']; ?></td>
-                        <td><a class="btn btn-outline-dark" href="#">Modificar</a></td>
+                        <td class="text-center"><?= $arrayCantMedicos[$unaClinica['cl_id']]; ?></td>
+                        <!-- <td><a class="" href="#">Modificar</a></td> -->
+                        <form action="" method="post">
+                            <input type="hidden" name="ingresar" value="<?= $unaClinica['cl_id'] ?>">
+                            <td class="text-center">
+                                <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-secondary" type="submit" value="Ingresar">
+                                <!-- </div> -->
+                            </td>
+                        </form>
+                        <form action="ingresar-modificar-clinica.php" method="post">
+                            <input type="hidden" name="modificar" value="<?= $unaClinica['cl_id'] ?>">
+                            <td class="text-center">
+                                <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-dark" type="submit" value="Modificar">
+                                <!-- </div> -->
+                            </td>
+                        </form>
+                        <form action="" method="post">
+                            <input type="hidden" name="eliminar" value="<?= $unaClinica['cl_id'] ?>">
+                            <td class="text-center">
+                                <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-danger" type="submit" value="Eliminar">
+                                <!-- </div> -->
+                            </td>
+                        </form>
                     </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 
 </main>

@@ -19,12 +19,14 @@ function connect() {
     }
 }
 
-// Insert - Update - Delete
-function ejecutar($sql) {
+function disconnect() {
     global $connection;
-    if (!isset($connection)) {
-        connect();
-    }
+    $connection = null;
+}
+
+// Insert - Update - Delete
+function ejecucionSimple($sql) {
+    global $connection;
     try {
         $sentencia = $connection->prepare($sql);
         $sentencia->execute();
@@ -35,11 +37,8 @@ function ejecutar($sql) {
 }
 
 // Select
-function consultar($sql) {
+function consultaSimple($sql) {
     global $connection;
-    if (!isset($connection)) {
-        connect();
-    }
     try {
         $sentencia = $connection->prepare($sql);
         $sentencia->execute();
