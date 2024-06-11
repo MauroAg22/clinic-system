@@ -46,9 +46,6 @@ if ($_POST) {
 
 ?>
 
-
-
-
 <?php include "components/head.php"; ?>
 
 
@@ -56,53 +53,54 @@ if ($_POST) {
     <div class="row justify-content-center pt-5">
         <div class="col-lg-8 p-3 bg-white rounded border">
             <form action="process/modificar-clinica.php" method="post">
+                <input type="hidden" name="cl_id" value="<?= $cl_id ?>">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre de la clínica</label>
-                            <input type="text" class="form-control" required id="nombre" value="<?= $cl_nombre ?>">
+                            <input type="text" class="form-control" required id="nombre" name="nombre" value="<?= $cl_nombre ?>">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="razonSocial" class="form-label">Razón social</label>
-                            <input type="text" class="form-control" required id="razonSocial" value="<?= $cl_razon_social ?>">
+                            <input type="text" class="form-control" required id="razonSocial" name="razonSocial" value="<?= $cl_razon_social ?>">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="cuit" class="form-label">CUIT</label>
-                            <input type="text" class="form-control" required id="cuit" value="<?= $cl_cuit ?>">
+                            <input type="text" class="form-control" required id="cuit" name="cuit" value="<?= $cl_cuit ?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="codigoPostal" class="form-label">Código postal</label>
-                            <input type="text" class="form-control" required id="codigoPostal" value="<?= $cl_codigo_postal ?>">
+                            <input type="text" class="form-control" required id="codigoPostal" name="codigoPostal" value="<?= $cl_codigo_postal ?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="ciudad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" required id="ciudad" value="<?= $cl_ciudad ?>">
+                            <input type="text" class="form-control" required id="ciudad" name="ciudad" value="<?= $cl_ciudad ?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="provincia" class="form-label">Provincia</label>
-                            <input type="text" class="form-control" required id="provincia" value="<?= $cl_provincia ?>">
+                            <input type="text" class="form-control" required id="provincia" name="provincia" value="<?= $cl_provincia ?>">
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="mb-3">
                             <label for="calle" class="form-label">Calle</label>
-                            <input type="text" class="form-control" required id="calle" value="<?= $cl_calle ?>">
+                            <input type="text" class="form-control" required id="calle" name="calle" value="<?= $cl_calle ?>">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label for="numero" class="form-label">Número</label>
-                            <input type="text" class="form-control" required id="numero" value="<?= $cl_numero_calle ?>">
+                            <input type="text" class="form-control" required id="numero" name="numero" value="<?= $cl_numero_calle ?>">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -119,8 +117,6 @@ if ($_POST) {
             </form>
         </div>
     </div>
-
-
 </main>
 
 

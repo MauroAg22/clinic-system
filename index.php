@@ -59,6 +59,7 @@ disconnect();
 </nav>
 
 <main class="container-lg my-4">
+    <?php if (!empty($clinicas)) { ?>
     <div class="p-3 bg-white rounded border table-responsive">
         <table class="table align-middle table-hover">
             <thead>
@@ -77,7 +78,7 @@ disconnect();
                         <td><?= $unaClinica['cl_nombre']; ?></td>
                         <td><?= $unaClinica['cl_cuit']; ?></td>
                         <td><?= $unaClinica['cl_ciudad'] . ", " . $unaClinica['cl_provincia']; ?></td>
-                        <td><?= $unaClinica['cl_calle'] . " " . $unaClinica['cl_numero_calle']; ?></td>
+                        <td><?= $unaClinica['cl_calle'] . ", " . $unaClinica['cl_numero_calle']; ?></td>
                         <td class="text-center"><?= $arrayCantMedicos[$unaClinica['cl_id']]; ?></td>
                         <!-- <td><a class="" href="#">Modificar</a></td> -->
                         <form action="" method="post">
@@ -96,7 +97,7 @@ disconnect();
                                 <!-- </div> -->
                             </td>
                         </form>
-                        <form action="" method="post">
+                        <form action="process/clinica-eliminar.php" method="post">
                             <input type="hidden" name="eliminar" value="<?= $unaClinica['cl_id'] ?>">
                             <td class="text-center">
                                 <!-- <div class="d-grid"> -->
@@ -109,6 +110,15 @@ disconnect();
             </tbody>
         </table>
     </div>
+    <?php } else { ?>
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-5">
+                <div class="alert alert-secondary col-sm-8 text-center" role="alert">
+                    No hay nada que mostrar aquí.
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
 </main>
 
