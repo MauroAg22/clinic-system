@@ -29,3 +29,5 @@ ORDER BY me.me_id
 SELECT cl_nombre, cl_cuit
 FROM clinica
 ORDER BY cl_nombre;
+
+SELECT * FROM medico

@@ -1,4 +1,4 @@
-create table
+CREATE TABLE
     MedicoEspecialidad (
         me_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         m_id INT NOT NULL,

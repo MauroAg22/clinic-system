@@ -1,7 +1,7 @@
 CREATE TABLE
     Paciente (
         pac_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        pac_dni INT NOT NULL UNIQUE,
+        pac_dni VARCHAR(10) NOT NULL UNIQUE,
         pac_nombre VARCHAR(50) NOT NULL,
         pac_apellido VARCHAR(50) NOT NULL,
         pac_fecha_nac DATE NOT NULL,

@@ -1,9 +1,9 @@
-create table
+CREATE TABLE
     Area (
-        a_id int not null primary key auto_increment,
-        a_codigo varchar(50) not null unique,
-        a_nombre varchar(50) not null unique,
+        a_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        a_codigo VARCHAR(50) NOT NULL UNIQUE,
+        a_nombre VARCHAR(50) NOT NULL UNIQUE,
         a_descripcion TEXT
     );
 
-drop table Area;
+DROP TABLE Area;
