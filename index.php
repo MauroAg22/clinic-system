@@ -43,7 +43,7 @@ disconnect();
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Clínicas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -53,6 +53,11 @@ disconnect();
                         <input class="btn btn-outline-success" type="submit" value="Agregar">
                     </div>
                 </form>
+                <?php if (!empty($clinicas)) { ?>
+                <div class="d-grid mb-3">
+                    <a class="btn btn-outline-primary" href="downloads/clinicas.csv">Descargar CSV</a>
+                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -60,7 +65,7 @@ disconnect();
 
 <main class="container-lg my-4">
     <form action="process/csv/clinicas-csv.php" method="post" enctype="multipart/form-data">
-        <div class="mb-3 bg-white rounded border">
+        <div class="mb-4 bg-white rounded border">
             <div class="row row-gap-3 p-3">
                 <div class="col-12">
                     <h3 class="m-0">Cargar datos de clínicas (csv)</h3>
@@ -85,7 +90,7 @@ disconnect();
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Cuit</th>
+                        <th scope="col">CUIT</th>
                         <th scope="col">Ciudad</th>
                         <th scope="col">Dirección</th>
                         <th scope="col" class="text-center">Médicos</th>
@@ -131,12 +136,8 @@ disconnect();
             </table>
         </div>
     <?php } else { ?>
-        <div class="container-fluid">
-            <div class="row justify-content-center mt-5">
-                <div class="alert alert-secondary col-sm-8 text-center" role="alert">
-                    No hay nada que mostrar aquí.
-                </div>
-            </div>
+        <div class="alert alert-warning text-center mt-4" role="alert">
+            <h3 class="m-0">No hay clínicas disponibles</h3>
         </div>
     <?php } ?>
 

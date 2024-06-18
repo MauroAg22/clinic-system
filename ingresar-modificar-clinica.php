@@ -52,7 +52,7 @@ if ($_POST) {
 <main class="container">
     <div class="row justify-content-center pt-5">
         <div class="col-lg-8 p-3 bg-white rounded border">
-            <form action="process/modificar-clinica.php" method="post">
+            <form action="process/clinica-modificar.php" method="post">
                 <input type="hidden" name="cl_id" value="<?= $cl_id ?>">
                 <div class="row">
                     <div class="col-md-12">

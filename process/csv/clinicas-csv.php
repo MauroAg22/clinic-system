@@ -18,8 +18,6 @@ if ($_FILES) {
 
         
         if ($manejo !== false) {
-            // // Lee la primera línea para obtener los nombres de las columnas
-            // $columnas = fgetcsv($manejo, 1000, $separador);
 
             $columnas = array(
                 "cl_cuit",
@@ -34,9 +32,7 @@ if ($_FILES) {
 
             // Lee cada línea del CSV hasta que fgetcsv devuelva false, lo que indica que ha alcanzado el final del archivo
             while (($linea = fgetcsv($manejo, 1000, $separador)) !== false) {
-
                 $clinicasCSV[] = array_combine($columnas, $linea);
-
             }
 
             // Cierra el archivo
@@ -104,7 +100,7 @@ if ($_FILES) {
 
         echo "Clínicas cargadas correctamente.";
 
-
+        disconnect();
 
         header("location:../../");
         exit;

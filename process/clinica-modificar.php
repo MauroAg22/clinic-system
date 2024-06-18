@@ -64,10 +64,10 @@ if ($_POST) {
         }
     }
 
-    $sentencia->bindParam(':cl_cuit', $cl_cuit, PDO::PARAM_STR,50);
+    $sentencia->bindParam(':cl_cuit', $cl_cuit, PDO::PARAM_STR,16);
     $sentencia->bindParam(':cl_razon_social', $cl_razon_social, PDO::PARAM_STR,50);
     $sentencia->bindParam(':cl_nombre', $cl_nombre, PDO::PARAM_STR,50);
-    $sentencia->bindParam(':cl_codigo_postal', $cl_codigo_postal, PDO::PARAM_STR,10);
+    $sentencia->bindParam(':cl_codigo_postal', $cl_codigo_postal, PDO::PARAM_STR,8);
     $sentencia->bindParam(':cl_provincia', $cl_provincia, PDO::PARAM_STR,50);
     $sentencia->bindParam(':cl_ciudad', $cl_ciudad, PDO::PARAM_STR,50);
     $sentencia->bindParam(':cl_calle', $cl_calle, PDO::PARAM_STR,50);
