@@ -59,57 +59,77 @@ disconnect();
 </nav>
 
 <main class="container-lg my-4">
+    <form action="process/csv/clinicas-csv.php" method="post" enctype="multipart/form-data">
+        <div class="mb-3 bg-white rounded border">
+            <div class="row row-gap-3 p-3">
+                <div class="col-12">
+                    <h3 class="m-0">Cargar datos de clínicas (csv)</h3>
+                </div>
+                <div class="col-12 col-md-10">
+                    <input type="file" class="form-control" name="archivo" required>
+                </div>
+                <div class="col-12 col-md-2">
+                    <div class="d-grid">
+                        <input class="btn btn-success" type="submit" value="CARGAR">
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </form>
     <?php if (!empty($clinicas)) { ?>
-    <div class="p-3 bg-white rounded border table-responsive">
-        <table class="table align-middle table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cuit</th>
-                    <th scope="col">Ciudad</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col" class="text-center">Médicos</th>
-                    <th scope="col" colspan="4" class="text-center">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($clinicas as $unaClinica) { ?>
+        <div class="p-3 bg-white rounded border table-responsive">
+            <table class="table align-middle table-hover">
+                <thead>
                     <tr>
-                        <td><?= $unaClinica['cl_nombre']; ?></td>
-                        <td><?= $unaClinica['cl_cuit']; ?></td>
-                        <td><?= $unaClinica['cl_ciudad'] . ", " . $unaClinica['cl_provincia']; ?></td>
-                        <td><?= $unaClinica['cl_calle'] . ", " . $unaClinica['cl_numero_calle']; ?></td>
-                        <td class="text-center"><?= $arrayCantMedicos[$unaClinica['cl_id']]; ?></td>
-                        <!-- <td><a class="" href="#">Modificar</a></td> -->
-                        <form action="" method="post">
-                            <input type="hidden" name="ingresar" value="<?= $unaClinica['cl_id'] ?>">
-                            <td class="text-center">
-                                <!-- <div class="d-grid"> -->
-                                    <input class="btn btn-outline-secondary" type="submit" value="Ingresar">
-                                <!-- </div> -->
-                            </td>
-                        </form>
-                        <form action="ingresar-modificar-clinica.php" method="post">
-                            <input type="hidden" name="modificar" value="<?= $unaClinica['cl_id'] ?>">
-                            <td class="text-center">
-                                <!-- <div class="d-grid"> -->
-                                    <input class="btn btn-outline-dark" type="submit" value="Modificar">
-                                <!-- </div> -->
-                            </td>
-                        </form>
-                        <form action="process/clinica-eliminar.php" method="post">
-                            <input type="hidden" name="eliminar" value="<?= $unaClinica['cl_id'] ?>">
-                            <td class="text-center">
-                                <!-- <div class="d-grid"> -->
-                                    <input class="btn btn-outline-danger" type="submit" value="Eliminar">
-                                <!-- </div> -->
-                            </td>
-                        </form>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cuit</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col" class="text-center">Médicos</th>
+                        <th scope="col" colspan="4" class="text-center">Acciones</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <?php foreach ($clinicas as $unaClinica) { ?>
+                        <tr>
+                            <td><?= $unaClinica['cl_nombre']; ?></td>
+                            <td><?= $unaClinica['cl_cuit']; ?></td>
+                            <td><?= $unaClinica['cl_ciudad'] . ", " . $unaClinica['cl_provincia']; ?></td>
+                            <td><?= $unaClinica['cl_calle'] . ", " . $unaClinica['cl_numero_calle']; ?></td>
+                            <td class="text-center"><?= $arrayCantMedicos[$unaClinica['cl_id']]; ?></td>
+                            <!-- <td><a class="" href="#">Modificar</a></td> -->
+                            <form action="" method="post">
+                                <input type="hidden" name="ingresar" value="<?= $unaClinica['cl_id'] ?>">
+                                <td class="text-center">
+                                    <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-secondary" type="submit" value="Ingresar">
+                                    <!-- </div> -->
+                                </td>
+                            </form>
+                            <form action="ingresar-modificar-clinica.php" method="post">
+                                <input type="hidden" name="modificar" value="<?= $unaClinica['cl_id'] ?>">
+                                <td class="text-center">
+                                    <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-dark" type="submit" value="Modificar">
+                                    <!-- </div> -->
+                                </td>
+                            </form>
+                            <form action="process/clinica-eliminar.php" method="post">
+                                <input type="hidden" name="eliminar" value="<?= $unaClinica['cl_id'] ?>">
+                                <td class="text-center">
+                                    <!-- <div class="d-grid"> -->
+                                    <input class="btn btn-outline-danger" type="submit" value="Eliminar">
+                                    <!-- </div> -->
+                                </td>
+                            </form>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     <?php } else { ?>
         <div class="container-fluid">
             <div class="row justify-content-center mt-5">
