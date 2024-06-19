@@ -55,7 +55,7 @@ disconnect();
                 </form>
                 <?php if (!empty($clinicas)) { ?>
                 <div class="d-grid mb-3">
-                    <a class="btn btn-outline-primary" href="downloads/clinicas.csv">Descargar CSV</a>
+                    <a class="btn btn-outline-primary" href="process/csv/descargar-clinicas-csv.php">Descargar CSV</a>
                 </div>
                 <?php } ?>
             </div>
@@ -64,7 +64,7 @@ disconnect();
 </nav>
 
 <main class="container-lg my-4">
-    <form action="process/csv/clinicas-csv.php" method="post" enctype="multipart/form-data">
+    <form action="process/csv/cargar-clinicas-csv.php" method="post" enctype="multipart/form-data">
         <div class="mb-4 bg-white rounded border">
             <div class="row row-gap-3 p-3">
                 <div class="col-12">
@@ -79,9 +79,6 @@ disconnect();
                     </div>
                 </div>
             </div>
-            
-            
-            
         </div>
     </form>
     <?php if (!empty($clinicas)) { ?>
