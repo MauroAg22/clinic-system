@@ -21,13 +21,13 @@ El sistema desarrollado permite gestionar información clave en entornos clínic
 1. **Crear Base de Datos:**
    - **Nota:** Nombre recomendado para la base de datos: "clinica"
 
-1. **Crear Tablas de la Base de Datos:**
+2. **Crear Tablas de la Base de Datos:**
    - Ejecute el script [create-all-tables.sql](database/create-all-tables.sql) para crear todas las tablas de la base de datos.
 
-2. **Importar Datos Iniciales:**
+3. **Importar Datos Iniciales:**
    - Utilice [inserts-principal.sql](database/inserts-principal.sql) para cargar datos iniciales y ejemplos de tuplas en la base de datos.
 
-3. **Configuración de Conexión:**
+4. **Configuración de Conexión:**
    - Asegúrese de configurar correctamente los parámetros de conexión en [connection.php](lib/connection.php) para establecer la conexión con la base de datos.
 
 ## Ejecución del Proyecto
