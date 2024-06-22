@@ -1,9 +1,10 @@
 -- Crear base de datos
-CREATE  DATABASE `clinica`
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
+-- CREATE  DATABASE `clinica`
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci;
 
-USE clinica;
+-- Seleccionar la base de datos creada
+-- USE clinica;
 
 CREATE TABLE Clinica (
         cl_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -65,7 +66,7 @@ CREATE TABLE MedicoEspecialidad (
         e_id INT NOT NULL,
         UNIQUE (m_id, e_id),
         FOREIGN KEY (m_id) REFERENCES Medico (m_id),
-        FOREIGN KEY (e_id) REFERENCES especialidad (e_id)
+        FOREIGN KEY (e_id) REFERENCES Especialidad (e_id)
     );
 
 CREATE TABLE Paciente (
@@ -106,8 +107,8 @@ CREATE TABLE PacientePatologia (
         pac_id INT NOT NULL,
         pat_id INT NOT NULL,
         UNIQUE (pac_id, pat_id),
-        FOREIGN KEY (pac_id) REFERENCES paciente (pac_id),
-        FOREIGN KEY (pat_id) REFERENCES patologia (pat_id)
+        FOREIGN KEY (pac_id) REFERENCES Paciente (pac_id),
+        FOREIGN KEY (pat_id) REFERENCES Patologia (pat_id)
     );
 
 CREATE TABLE Vacuna (
@@ -120,8 +121,8 @@ CREATE TABLE PacienteVacuna (
         pac_id INT NOT NULL,
         v_id INT NOT NULL,
         UNIQUE (pac_id, v_id),
-        FOREIGN KEY (pac_id) REFERENCES paciente (pac_id),
-        FOREIGN KEY (v_id) REFERENCES vacuna (v_id)
+        FOREIGN KEY (pac_id) REFERENCES Paciente (pac_id),
+        FOREIGN KEY (v_id) REFERENCES Vacuna (v_id)
     );
 
 CREATE TABLE Consulta (
