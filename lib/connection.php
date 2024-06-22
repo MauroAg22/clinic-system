@@ -1,5 +1,10 @@
 <?php
 
+// Base de datos de - https://www.000webhost.com/ 
+// const USER = 'id21345029_mauroag22';
+// const PASSWORD = 'F4f3&j85$Sdf';
+// const DBNAME = 'id21345029_clinica';
+
 const SERVER = "localhost";
 const USER = "root";
 const PASSWORD = "";
@@ -15,7 +20,7 @@ function connect() {
         $connection = new PDO("mysql:host=".SERVER.";dbname=".DBNAME, USER, PASSWORD, OPTIONS);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $error) {
-        die("Conexion erronea: " . $error->getMessage());
+        die("Error de conexión: " . $error->getMessage());
     }
 }
 
@@ -32,7 +37,7 @@ function ejecucionSimple($sql) {
         $sentencia->execute();
         return $connection->lastInsertId();
     } catch (PDOException $error) {
-        die("Error al ejecutar: " . $error->getMessage());
+        die("Error de ejecución script SQL: " . $error->getMessage());
     }
 }
 

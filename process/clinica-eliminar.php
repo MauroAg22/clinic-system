@@ -56,7 +56,7 @@ if ($_POST) {
     }
 
     // Acá borramos la clínica
-    $sql4 = "DELETE FROM clinica 
+    $sql4 = "DELETE FROM Clinica 
             WHERE cl_id = :cl_id";
 
     $sentencia = $connection->prepare($sql4);

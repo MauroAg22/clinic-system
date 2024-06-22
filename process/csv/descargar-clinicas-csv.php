@@ -4,7 +4,7 @@ require_once "../../lib/connection.php";
 
 connect();
 
-$sql = "SELECT * FROM clinica";
+$sql = "SELECT * FROM Clinica";
 
 $clinicas = consultaSimple($sql);
 
