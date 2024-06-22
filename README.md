@@ -19,7 +19,7 @@ El sistema desarrollado permite gestionar información clave en entornos clínic
 ## Cómo Levantar el Proyecto
 
 1. **Importar Base de Datos:**
-   - Ejecute el script [create-clinica.sql](database/create-clinica.sql) para configurar la estructura de la base de datos.
+   - Ejecute el script [create-all-tables.sql](database/create-all-tables.sql) para crear todas las tablas de la base de datos.
 
 2. **Importar Datos Iniciales:**
    - Utilice [inserts-principal.sql](database/inserts-principal.sql) para cargar datos iniciales y ejemplos de tuplas en la base de datos.
