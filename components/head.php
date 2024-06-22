@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/general.css">
 
     <!-- Titulo -->
-    <title>Clínica ABM</title>
+    <title>Clínicas ABM</title>
 </head>
 
 <body>

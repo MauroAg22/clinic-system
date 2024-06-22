@@ -8,7 +8,6 @@ if ($_FILES) {
         $url = $_FILES["archivo"]["tmp_name"];
         $nombreArchivo = "clinicas.csv";
         $guardarEn = '../../temp/';
-        $filename = "datos_upload.csv";
         $fichero_subido = $guardarEn . $nombreArchivo;
         move_uploaded_file($url, $fichero_subido);
 
@@ -98,7 +97,7 @@ if ($_FILES) {
 
 
 
-        echo "Clínicas cargadas correctamente.";
+        // echo "Clínicas cargadas correctamente.";
 
         disconnect();
 

@@ -84,7 +84,7 @@ disconnect();
     <?php if (!empty($clinicas)) { ?>
         <div class="p-3 bg-white rounded border">
             <div class="table-responsive">
-                <table class="table m-0 align-middle table-hover border-top">
+                <table class="table text-nowrap m-0 align-middle table-hover border-top">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
