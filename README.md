@@ -18,7 +18,10 @@ El sistema desarrollado permite gestionar información clave en entornos clínic
 
 ## Cómo Levantar el Proyecto
 
-1. **Importar Base de Datos:**
+1. **Crear Base de Datos:**
+   - **Nota:** Nombre recomendado para la base de datos: "clinica"
+
+1. **Crear Tablas de la Base de Datos:**
    - Ejecute el script [create-all-tables.sql](database/create-all-tables.sql) para crear todas las tablas de la base de datos.
 
 2. **Importar Datos Iniciales:**
