@@ -4,7 +4,17 @@ require_once "../../lib/connection.php";
 
 connect();
 
-$sql = "SELECT * FROM Clinica";
+$sql = "SELECT 
+            cl_cuit,
+            cl_razon_social,
+            cl_nombre,
+            cl_codigo_postal,
+            cl_provincia,
+            cl_ciudad,
+            cl_calle,
+            cl_numero_calle
+        FROM
+            Clinica";
 
 $clinicas = consultaSimple($sql);
 
@@ -17,7 +27,6 @@ $manejo = fopen("php://output","w");
 
 foreach ($clinicas as $unaClinica) {
     $linea = [
-        $unaClinica['cl_id'],
         $unaClinica['cl_cuit'],
         $unaClinica['cl_razon_social'],
         $unaClinica['cl_nombre'],
