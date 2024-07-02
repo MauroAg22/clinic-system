@@ -63,7 +63,7 @@ disconnect();
     </div>
 </nav>
 
-<main class="container-lg my-4">
+<main class="container-xl my-4">
     <form action="process/csv/cargar-clinicas-csv.php" method="post" enctype="multipart/form-data">
         <div class="mb-4 bg-white rounded border">
             <div class="row row-gap-3 p-3">
