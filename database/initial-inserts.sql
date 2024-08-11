@@ -1,3 +1,6 @@
+-- Seleccionar la base de datos creada
+-- USE clinica;
+
 INSERT INTO
     Clinica (
         cl_cuit,
