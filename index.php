@@ -92,7 +92,7 @@ disconnect();
                             <th scope="col">Ciudad</th>
                             <th scope="col">Dirección</th>
                             <th scope="col" class="text-center">Médicos</th>
-                            <th scope="col" colspan="2" class="text-center">Acciones</th>
+                            <th scope="col" colspan="3" class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,14 +104,14 @@ disconnect();
                                 <td><?= $unaClinica['cl_calle'] . ", " . $unaClinica['cl_numero_calle']; ?></td>
                                 <td class="text-center"><?= $arrayCantMedicos[$unaClinica['cl_id']]; ?></td>
                                 
-                                <!-- <td>
+                                <td>
                                     <form action="" method="post">
                                         <input type="hidden" name="ingresar" value="<?//= $unaClinica['cl_id'] ?>">
                                         <div class="d-grid">
                                             <input class="btn btn-sm btn-outline-secondary" type="submit" value="Ingresar" disabled>
                                         </div>
                                     </form>
-                                </td> -->
+                                </td>
 
                                 <td>
                                     <form action="ingresar-modificar-clinica.php" method="post">
